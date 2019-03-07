@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Online Calculator</title>
+        <style>
+            .for
+            {
+                border:1px solid black;
+                width:500px;
+                height:500px;
+                margin:auto;
+            }
+            input[type="button"]{
+                height:75px;
+                width:75px;
+            }
+        </style>
+        <script>
+            var v1 = "0", v2 = "0", operator;
+            function st(x) {
+                v1 += x;
+                document.getElementById("in").innerHTML = v1;
+            }
+            function op(x) {
+                operator = x;
+                document.getElementById("in").innerHTML = "";
+                v2 = v1;
+                v1 = "0";
+            }
+            function ans() {
+                v1 = Number(v1);
+                v2 = Number(v2);
+                switch (operator) {
+                    case '+': document.getElementById("in").innerHTML = (v2 + v1);
+                        break;
+                    case '-': document.getElementById("in").innerHTML = (v2 - v1);
+                        break;
+                    case '*': document.getElementById("in").innerHTML = (v2 * v1);
+                        break;
+                    case '/': document.getElementById("in").innerHTML = (v2 / v1);
+                        break;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="for">
+            <table class="for">
+                <tr>
+                    <td colspan="4">
+                        <p id="in" style="font-size:50px;text-align: right">0</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="7" onclick="st(7)"></td>
+                    <td><input type="button" value="8" onclick="st(8)"></td>
+                    <td><input type="button" value="9" onclick="st(9)"></td>
+                    <td><input type="button" value="/" onclick="op('/')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="4" onclick="st(4)"></td>
+                    <td><input type="button" value="5" onclick="st(5)"></td>
+                    <td><input type="button" value="6" onclick="st(6)"></td>
+                    <td><input type="button" value="*" onclick="op('*')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="1" onclick="st(1)"></td>
+                    <td><input type="button" value="2" onclick="st(2)"></td>
+                    <td><input type="button" value="3" onclick="st(3)"></td>
+                    <td><input type="button" value="-" onclick="op('-')"></td>
+                </tr>
+                <tr>
+                    <td><input type="button" value="." onclick="st('.')"></td>
+                    <td><input type="button" value="0" onclick="st(0)"></td>
+                    <td><input type="button" value="=" onclick="ans()"></td>
+                    <td><input type="button" value="+" onclick="op('+')"></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
